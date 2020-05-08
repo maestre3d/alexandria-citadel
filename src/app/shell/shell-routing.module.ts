@@ -1,16 +1,17 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { ShellComponent } from './shell.component';
 
 
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./shell/shell.module').then(m => m.ShellModule)
+    component: ShellComponent
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class ShellRoutingModule { }
