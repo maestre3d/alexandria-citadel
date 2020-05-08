@@ -1,6 +1,51 @@
-@use 'alexandria';
+@import './alexandria';
 
 .btn {
-    background-color: rgba(#000000, 1.0);
-    color: var(--color-primary);
+    background-color: rgba($primary, 0.1);
+    color: $primary;
+}
+
+.btn:hover {
+    background-color: rgba($primary, 0.3);
+    transition: ease-in 200ms;
+}
+
+.btn:active {
+    background-color: var(--color-font);
+    color: $primary;
+}
+
+/* Dark mode */
+html[data-theme="dark"] {
+    .btn {
+        background-color: var(--color-background-light);
+        color: var(--color-font-alt);
+    }
+
+    .btn:hover {
+        background-color: $primary;
+        transition: ease-in 200ms;
+    }
+    
+    .btn:active {
+        background-color: var(--color-font);
+        color: $primary;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .btn {
+        background-color: var(--color-background-light);
+        color: var(--color-font);
+    }
+
+    .btn:hover {
+        background-color: $primary;
+        transition: ease-in 200ms;
+    }
+    
+    .btn:active {
+        background-color: $primary;
+        color: var(--color-font);
+    }
 }
