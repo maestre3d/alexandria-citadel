@@ -1,8 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
 import * as serviceWorker from './serviceWorker';
+
+// Commponents
+import App from './component/App';
+
+// Styles
+import './index.scss';
+import './assets/scss/tailwind.generated.scss';
+import './assets/scss/style.scss';
+import './assets/scss/alexandria-theme.scss';
 
 ReactDOM.render(
   <React.StrictMode>
