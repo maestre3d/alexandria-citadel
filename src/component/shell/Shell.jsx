@@ -18,8 +18,8 @@ function Shell() {
     return (
         <div className="flex flex-col h-full w-full lg:flex-row">
             <div className="appbar desktop hidden flex-col items-center p-16 shadow-2xl lg:flex" style={{borderTopRightRadius:customBorderRadius, borderBottomRightRadius:customBorderRadius}}>
-                <span className="font-bold text-3xl">{APPLICATION_SHORT_NAME}</span>
-                <ButtonIcon icon="home" action={action}>
+                <span className='font-bold text-3xl'>{APPLICATION_SHORT_NAME}</span>
+                <ButtonIcon action={action}>
                     <span className="icon">home</span>
                 </ButtonIcon>
                 <ButtonIcon>
@@ -32,9 +32,9 @@ function Shell() {
                     Authors created: 1
                 </div>
             </div>
-            <div className="appbar mobile flex flex-row justify-center items-center p-1 mx-4 my-8 rounded-full z-10 absolute bottom-0 inset-x-0
-                shadow-2xl lg:hidden">
-                <ButtonIcon icon="home" action={action}>
+            <div className="appbar mobile flex flex-row justify-center items-center p-1 mx-4 my-8 rounded-full z-10 absolute bottom-0 self-center max-w-screen-sm
+                shadow-2xl  lg:hidden">
+                <ButtonIcon action={action}>
                     <span className="icon">home</span>
                 </ButtonIcon>
                 <ButtonIcon>

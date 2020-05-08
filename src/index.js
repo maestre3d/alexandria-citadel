@@ -11,9 +11,11 @@ import './assets/scss/style.scss';
 import './assets/scss/_alexandria.scss';
 import './assets/scss/alexandria-component.scss';
 import { getTheme } from './shared/service/theme';
+import { listenColorScheme } from './core/theme';
 
 // Configure HTML's attributes
 document.documentElement.setAttribute("data-theme", getTheme());
+listenColorScheme();
 
 ReactDOM.render(
   <React.StrictMode>

@@ -24,7 +24,7 @@ export function getTheme() {
     if (isUsingDarkColorScheme() && theme !== 'dark' && !storageItem) {
         localStorage.setItem('theme', 'dark');
         theme = 'dark';
-    } 
+    }
 
     return theme;
 }
@@ -43,6 +43,7 @@ export function changeTheme() {
     localStorage.setItem('theme', theme);
 }
 
+// isUsingDarkColorScheme returns if user has color scheme set to dark
 function isUsingDarkColorScheme() {
     return window.matchMedia('(prefers-color-scheme: dark)').matches;
 }
