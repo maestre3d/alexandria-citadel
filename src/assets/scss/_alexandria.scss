@@ -14,13 +14,14 @@ html.theme-transition *:after {
 }
 
 html {
-    --color-primary: $primary;
-    --color-accent: $accent;
-    --color-danger: $danger;
-    --color-success: $success;
+    --color-primary: #3d5afe;
+    --color-accent: #e0e0e0;
+    --color-danger: #d50000;
+    --color-success: #00c853;
 
     --color-font: #111111;
     --color-font-accent: #7b7b7b;
+    --color-font-alt: #ffffff;
 
     --color-border: #e4e4e4;
 
@@ -31,13 +32,14 @@ html {
 }
 
 html[data-theme="dark"] {
-    --color-primary: $primary;
-    --color-accent: $accent;
-    --color-danger: $danger;
-    --color-success: $success;
+    --color-primary: #3d5afe;
+    --color-accent: #e0e0e0;
+    --color-danger: #d50000;
+    --color-success: #00c853;
 
     --color-font: #ffffff;
     --color-font-accent: rgba(255,255,255, 0.6);
+    --color-font-alt: #111111;
 
     --color-border: #292929;
 
@@ -54,13 +56,14 @@ html[data-theme="dark"] {
 @media (prefers-color-scheme: dark) {
     
     html {
-        --color-primary: $primary;
-        --color-accent: $accent;
-        --color-danger: $danger;
-        --color-success: $success;
+        --color-primary: #3d5afe;
+        --color-accent: #e0e0e0;
+        --color-danger: #d50000;
+        --color-success: #00c853;
 
         --color-font: #ffffff;
         --color-font-accent: rgba(255,255,255, 0.6);
+        --color-font-alt: #111111;
 
         --color-border: #292929;
 

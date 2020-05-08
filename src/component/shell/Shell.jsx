@@ -1,8 +1,12 @@
 import React from 'react';
 import { APPLICATION_SHORT_NAME } from '../../core/config';
 
+// Component
+import { ButtonIcon } from '../../shared/component/Button';
+
 // Styles
 import './Shell.scss';
+
 
 function Shell() {
     const customBorderRadius = "24px";
@@ -19,9 +23,10 @@ function Shell() {
                     Authors created: 1
                 </div>
             </div>
-            <div className="appbar flex flex-row justify-center items-center p-4 m-4 rounded-lg z-10 absolute bottom-0 inset-x-0
+            <div className="appbar mobile flex flex-row justify-center items-center p-1 mx-4 my-8 rounded-full z-10 absolute bottom-0 inset-x-0
                 shadow-2xl lg:hidden">
-                <button className="btn">Home</button>
+                <ButtonIcon icon="home" />
+                <ButtonIcon icon="account_circle" />
             </div>
         </div>
     )

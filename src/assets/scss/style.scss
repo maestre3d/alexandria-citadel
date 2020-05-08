@@ -1,4 +1,5 @@
 /* Global components */
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
 body {
     margin: 0;
@@ -14,4 +15,12 @@ body {
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
       monospace;
+}
+
+a {
+  color: var(--primary-color);
+}
+
+.icon {
+  font-family: 'Material Icons', sans-serif;
 }

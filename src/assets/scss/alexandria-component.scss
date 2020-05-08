@@ -1,5 +1,6 @@
-@import './alexandria-theme.scss';
+@use 'alexandria';
 
 .btn {
-    background-color: var(--color-primary);
+    background-color: rgba(#000000, 1.0);
+    color: var(--color-primary);
 }
