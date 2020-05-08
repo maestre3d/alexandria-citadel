@@ -9,7 +9,7 @@ import './App.scss';
 function App() {
   return (
     <div className="wrapper flex flex-col w-screen h-screen">
-      <Shell></Shell>
+      <Shell />
     </div>
   );
 }

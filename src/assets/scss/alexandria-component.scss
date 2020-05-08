@@ -19,7 +19,7 @@
 html[data-theme="dark"] {
     .btn {
         background-color: var(--color-background-light);
-        color: var(--color-font-alt);
+        color: var(--color-font);
     }
 
     .btn:hover {
@@ -28,24 +28,26 @@ html[data-theme="dark"] {
     }
     
     .btn:active {
-        background-color: var(--color-font);
-        color: $primary;
+        background-color: $primary;
+        color: var(--color-font);
     }
 }
 
 @media (prefers-color-scheme: dark) {
-    .btn {
-        background-color: var(--color-background-light);
-        color: var(--color-font);
-    }
-
-    .btn:hover {
-        background-color: $primary;
-        transition: ease-in 200ms;
-    }
+    html[data-theme="dark"] {
+        .btn {
+            background-color: var(--color-background-light);
+            color: var(--color-font);
+        }
     
-    .btn:active {
-        background-color: $primary;
-        color: var(--color-font);
+        .btn:hover {
+            background-color: $primary;
+            transition: ease-in 200ms;
+        }
+        
+        .btn:active {
+            background-color: $primary;
+            color: var(--color-font);
+        }
     }
 }
