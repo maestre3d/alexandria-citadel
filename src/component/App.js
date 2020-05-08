@@ -1,7 +1,7 @@
 import React from 'react';
 
 // Components
-import Shell from './shell/Shell';
+import Shell from './shell/Shell.jsx';
 
 // Styles
 import './App.scss';
