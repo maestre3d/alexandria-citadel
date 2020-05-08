@@ -17,6 +17,14 @@
     @apply bg-opacity-30 transition ease-in duration-200;
 }
 
+.card {
+    @apply flex flex-col w-full rounded-lg shadow-xl p-4 max-w-lg;
+    background-color: var(--color-background);
+}
+
+.card-sm {
+    @apply flex-row flex-wrap max-w-sm;
+}
 
 /* Dark mode */
 html[data-theme="dark"] {

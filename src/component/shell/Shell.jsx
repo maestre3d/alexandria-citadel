@@ -7,6 +7,7 @@ import { Button, ButtonIcon } from '../../shared/component/Button';
 // Styles
 import './Shell.scss';
 import { changeTheme } from '../../shared/service/theme';
+import { CardSmall } from '../../shared/component/Card';
 
 
 function Shell() {
@@ -22,17 +23,12 @@ function Shell() {
             <div className="appbar desktop hidden flex-col items-center p-10 shadow-2xl lg:flex" style={{borderTopRightRadius:customBorderRadius, borderBottomRightRadius:customBorderRadius}}>
                 
                 <div className="flex flex-col">
-                    <span className='font-bold text-3xl'>{PLATFORM_NAME}</span>
-                    <span className='text-3xl'>{APPLICATION_SHORT_NAME}</span>
+                    <h1 className='font-bold text-3xl'>{PLATFORM_NAME}</h1>
+                    <h2 className='text-3xl'>{APPLICATION_SHORT_NAME}</h2>
                 </div>
 
                 {/** Appbar list */}
                 <div className="list-y flex flex-col my-4 w-full">
-                    <div className='item flex flex-col self-center'>
-                        <ButtonIcon action={action}>
-                            <span className="icon">home</span>
-                        </ButtonIcon>
-                    </div>
                     
                     {/** Event Bus */}
                     <div className='item flex flex-col'>
@@ -44,6 +40,10 @@ function Shell() {
                         <Button>
                             <span className="mdi mdi-rabbit text-xl mr-1" />
                             <span>RabbitMQ</span>
+                        </Button>
+                        <Button>
+                            <span className="mdi mdi-aws text-xl mr-1" />
+                            <span>Amazon</span>
                         </Button>
                     </div>
 
@@ -73,19 +73,30 @@ function Shell() {
                         </Button>
                     </div>
 
+                    {/** System */}
+                    <div className='item flex self-center'>
+                        <ButtonIcon action={action}>
+                            <span className="icon">account_circle</span>
+                        </ButtonIcon>
+                    </div>
+
                 </div>
             </div>
 
             {/** Content */}
-            <div className="flex flex-col h-full w-full items-center p-4">
+            <div className="flex flex-col h-auto w-full items-center p-4">
                 <div className='flex flex-col self-start lg:hidden'>
-                    <span className='font-bold text-3xl'>{PLATFORM_NAME}</span>
-                    <span className='text-3xl'>{APPLICATION_SHORT_NAME}</span>
+                    <h1 className='font-bold text-3xl'>{PLATFORM_NAME}</h1>
+                    <h2 className='text-3xl'>{APPLICATION_SHORT_NAME}</h2>
                 </div>
-                <div className='flex flex-row'>
-                    <span>Message Brokers</span>
-                    <strong>45</strong>
-                </div>
+                <CardSmall image='https://images.unsplash.com/photo-1501526029524-a8ea952b15be?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80'
+                    alt='statistics'>
+                    <span>Statistics</span>
+                </CardSmall>
+                <CardSmall image='https://images.unsplash.com/photo-1501526029524-a8ea952b15be?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80'
+                    alt='statistics'>
+                    <span>Statistics</span>
+                </CardSmall>
             </div>
 
             {/** Mobile Appbar */}
@@ -99,6 +110,9 @@ function Shell() {
                 </ButtonIcon>
                 <ButtonIcon>
                     <span className="mdi mdi-api" />
+                </ButtonIcon>
+                <ButtonIcon action={action}>
+                    <span className="icon">account_circle</span>
                 </ButtonIcon>
             </div>
         </div>
