@@ -6,15 +6,14 @@ import { ButtonIcon } from '../../shared/component/Button';
 
 // Styles
 import './Shell.scss';
+import { changeTheme } from '../../shared/service/theme';
 
 
 function Shell() {
     const customBorderRadius = "24px";
     document.title = `${APPLICATION_SHORT_NAME} - Home`;
 
-    const action = () => {
-        alert("You clicked me")
-    }
+    const action = () => changeTheme();
 
     return (
         <div className="flex flex-col h-full w-full lg:flex-row">

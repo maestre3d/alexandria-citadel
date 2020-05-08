@@ -10,7 +10,7 @@ import './assets/scss/tailwind.generated.scss';
 import './assets/scss/style.scss';
 import './assets/scss/_alexandria.scss';
 import './assets/scss/alexandria-component.scss';
-import { getTheme } from './core/service/theme';
+import { getTheme } from './shared/service/theme';
 
 // Configure HTML's attributes
 document.documentElement.setAttribute("data-theme", getTheme());

@@ -29,6 +29,20 @@ export function getTheme() {
     return theme;
 }
 
+// changeTheme toggles the alternative theme's contrast
+export function changeTheme() {
+    const theme = getTheme() === 'dark' ? 'light' : 'dark';
+
+    document.documentElement.classList.add('theme-transition');
+    document.documentElement.setAttribute('data-theme', theme);
+    window.setTimeout(function() {
+        document.documentElement.classList.remove('theme-transition')
+    }, 200);
+
+    // Save changes to disk
+    localStorage.setItem('theme', theme);
+}
+
 function isUsingDarkColorScheme() {
     return window.matchMedia('(prefers-color-scheme: dark)').matches;
 }

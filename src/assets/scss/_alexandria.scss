@@ -9,7 +9,7 @@ html.theme-transition,
 html.theme-transition *,
 html.theme-transition *:before,
 html.theme-transition *:after {
-    transition: all 750ms !important;
+    transition: all ease-in 200ms !important;
     transition-delay: 0 !important;
 }
 
