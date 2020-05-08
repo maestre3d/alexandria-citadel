@@ -6,10 +6,10 @@ import * as serviceWorker from './serviceWorker';
 import App from './component/App';
 
 // Styles
-import './index.scss';
 import './assets/scss/tailwind.generated.scss';
 import './assets/scss/style.scss';
 import './assets/scss/alexandria-theme.scss';
+import './assets/scss/alexandria-component.scss';
 
 ReactDOM.render(
   <React.StrictMode>

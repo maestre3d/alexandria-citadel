@@ -50,9 +50,9 @@ html[data-theme="dark"] {
 :root {
     color-scheme: light dark;
 }
-
+/*
 @media (prefers-color-scheme: dark) {
-    /* dark mode styles */ 
+    
     html {
         --color-primary: $primary;
         --color-accent: $accent;
@@ -70,3 +70,4 @@ html[data-theme="dark"] {
         --color-background: #242526;
     }
 }
+*/
