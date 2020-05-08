@@ -9,7 +9,8 @@ import App from './component/App';
 import './assets/scss/tailwind.generated.scss';
 import './assets/scss/style.scss';
 import './assets/scss/_alexandria.scss';
-import './assets/scss/alexandria-component.scss';
+
+// Functions
 import { getTheme } from './shared/service/theme';
 import { listenColorScheme } from './core/theme';
 

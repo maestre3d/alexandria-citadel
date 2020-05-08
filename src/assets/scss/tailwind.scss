@@ -1,3 +1,33 @@
+@import './alexandria';
+
 @tailwind base;
+
 @tailwind components;
+
+.btn {
+    @apply rounded-lg p-1 bg-indigo bg-opacity-10 text-indigo;
+    width: fit-content;
+}
+
+.btn-icon {
+    @apply rounded-full text-2xl w-12 h-12;
+}
+
+.btn:hover {
+    @apply bg-opacity-30 transition ease-in duration-200;
+}
+
+
+/* Dark mode */
+html[data-theme="dark"] {
+    .btn {
+        background-color: var(--color-background-light);
+        color: var(--color-font);
+    }
+
+    .btn:hover {
+        @apply bg-indigo
+    }
+}
+
 @tailwind utilities;
