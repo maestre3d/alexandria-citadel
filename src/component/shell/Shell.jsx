@@ -3,7 +3,6 @@ import { APPLICATION_SHORT_NAME, PLATFORM_NAME } from '../../core/config';
 
 // Component
 import { ButtonIcon } from '../../shared/component/Button';
-import { CardSmall } from '../../shared/component/Card';
 import { Field } from '../../shared/component/Field';
 import { ListItem } from '../../shared/component/List';
 
@@ -12,6 +11,7 @@ import './Shell.scss';
 
 // Function
 import { changeTheme } from '../../shared/service/theme';
+import Home from '../home/Home';
 
 function Shell() {
     const customBorderRadius = "24px";
@@ -26,14 +26,6 @@ function Shell() {
         setSearch(e.target.value);
     };
 
-    // Avoid desktop/mobile non-required rendering async
-    function onResponseSize() {
-        if (window.innerWidth >= 1024) {
-            console.log('is large')
-        }
-    }
-    window.onresize = onResponseSize;
-
     useEffect(() => {
         // ComponentDidMount-like - OnSearch change, do API call
     })
@@ -42,7 +34,7 @@ function Shell() {
         <div className="flex flex-col h-full w-full lg:flex-row">
 
             {/** Desktop Appbar */}
-            <div className="appbar hidden flex flex-col items-center p-8 shadow-2xl h-full w-auto max-w-md
+            <div className="appbar desktop hidden flex flex-col items-center p-8 shadow-2xl h-full w-auto max-w-md
                 lg:flex" style={{borderTopRightRadius:customBorderRadius, borderBottomRightRadius:customBorderRadius}}>
                 
                 {/** Application name */}
@@ -89,7 +81,7 @@ function Shell() {
                             <span className="mdi mdi-api text-xl mr-1" />
                             <span>API Status</span>
                         </ListItem>
-                        <ListItem>
+                        <ListItem className='mb-1'>
                             <span className="mdi mdi-gauge text-xl mr-1" />
                             <span>Metric</span>
                         </ListItem>
@@ -107,26 +99,8 @@ function Shell() {
                 </div>
             </div>
 
-            {/** Content */}
-            <div className="flex flex-col h-auto w-full items-center p-4">
-                <div className='flex flex-col self-start lg:hidden'>
-                    <h1 className='font-bold text-3xl'>{PLATFORM_NAME}</h1>
-                    <h2 className='text-3xl'>{APPLICATION_SHORT_NAME}</h2>
-                </div>
-                <CardSmall image='https://images.unsplash.com/photo-1501526029524-a8ea952b15be?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80'
-                    alt='statistics'>
-                    <span>Statistics</span>
-                </CardSmall>
-                <CardSmall image='https://images.unsplash.com/photo-1501526029524-a8ea952b15be?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80'
-                    alt='statistics'>
-                    <span>Statistics</span>
-                </CardSmall>
-                <div className='card card-sm card-ios'>
-                    <img src='https://images.unsplash.com/photo-1501526029524-a8ea952b15be?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80'
-                                    alt='' className='rounded-full w-24 h-24 shadow-lg' />
-                            <span>Maths</span>
-                </div>
-            </div>
+            {/** Content - Main Viewport */}
+            <Home /> 
 
             {/** Mobile Appbar */}
             <div className="appbar mobile flex flex-row justify-center items-center p-1 my-8 rounded-full z-10 fixed bottom-0 self-center max-w-screen-sm

@@ -49,12 +49,16 @@
 }
 
 /* Layout components */
+.viewport {
+    @apply flex flex-col h-auto w-full items-center p-4;
+}
+
 .card {
-    @apply flex flex-col w-full rounded-lg shadow-xl p-4 max-w-lg;
+    @apply flex flex-col rounded-lg shadow-xl p-4;
     background-color: var(--color-background);
 }
 
-.card-ios {
+.card-backdrop {
     background-color: rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(10px);
 }
@@ -72,7 +76,7 @@
 }
 
 .list-item:focus {
-    @apply outline-none;
+    @apply outline-none shadow-outline transition ease-in duration-200;
 }
 
 /* Dark mode */
