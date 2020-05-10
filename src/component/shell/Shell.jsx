@@ -45,9 +45,7 @@ function Shell() {
                 </div>
 
                 {/** Search input */}
-                <div className='my-1 w-full'>
-                    <Field icon='search' placeholder='Search a category' handleChange={handleSearchChange} value={searchValue} />
-                </div>
+                <Field className='my-1 w-full' icon='search' placeholder='Search a category' handleChange={handleSearchChange} value={searchValue} />
 
                 {/** Appbar list */}
                 <div className="flex flex-col my-4 w-full h-full">
