@@ -6,7 +6,7 @@ export function Field(props) {
     return (
         <div className='flex flex-row items-center field default focus:outline-none focus:shadow-outline'>
             {iconTemplate}
-            <input className="input w-full focus:outline-none" type={type} placeholder={props.placeholder} />
+            <input className="input w-full focus:outline-none" type={type} placeholder={props.placeholder} value={props.value} onChange={props.handleChange} />
         </div>
     );
 }

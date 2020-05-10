@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { APPLICATION_SHORT_NAME, PLATFORM_NAME } from '../../core/config';
 
 // Component
@@ -19,6 +19,25 @@ function Shell() {
 
     const action = () => changeTheme();
 
+    // Search
+    const [searchValue, setSearch] = useState('');
+
+    const handleSearchChange = (e) => {
+        setSearch(e.target.value);
+    };
+
+    // Avoid desktop/mobile non-required rendering async
+    function onResponseSize() {
+        if (window.innerWidth >= 1024) {
+            console.log('is large')
+        }
+    }
+    window.onresize = onResponseSize;
+
+    useEffect(() => {
+        // ComponentDidMount-like - OnSearch change, do API call
+    })
+
     return (
         <div className="flex flex-col h-full w-full lg:flex-row">
 
@@ -35,7 +54,7 @@ function Shell() {
 
                 {/** Search input */}
                 <div className='my-1 w-full'>
-                    <Field icon='search' placeholder='Search a category' />
+                    <Field icon='search' placeholder='Search a category' handleChange={handleSearchChange} value={searchValue} />
                 </div>
 
                 {/** Appbar list */}
