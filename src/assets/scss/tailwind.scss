@@ -4,8 +4,31 @@
 
 @tailwind components;
 
+/* Global */
+.active {
+    @apply bg-indigo text-white transition ease-in duration-200;
+}
+
+.primary {
+    @apply bg-indigo text-indigo bg-opacity-10;
+}
+
+.default {
+    @apply bg-gray-700 text-gray-700 bg-opacity-10
+}
+
+/* Form components */
+.field {
+    @apply rounded-lg py-2 px-4 block w-full appearance-none leading-normal;
+}
+
+.input {
+    @apply bg-gray-400 bg-opacity-10;
+    color: var(--color-font);
+}
+
 .btn {
-    @apply rounded-lg p-1 bg-indigo bg-opacity-10 text-indigo;
+    @apply rounded-lg p-1;
     width: fit-content;
 }
 
@@ -17,24 +40,67 @@
     @apply bg-opacity-30 transition ease-in duration-200;
 }
 
+.btn:focus {
+    @apply outline-none shadow-outline transition ease-in duration-200;
+}
+
+.btn:active {
+    @apply outline-none;
+}
+
+/* Layout components */
 .card {
     @apply flex flex-col w-full rounded-lg shadow-xl p-4 max-w-lg;
     background-color: var(--color-background);
+}
+
+.card-ios {
+    background-color: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
 }
 
 .card-sm {
     @apply flex-row flex-wrap max-w-sm;
 }
 
+.list-item {
+    @apply flex flex-row items-center rounded-lg p-2 text-gray-700 font-medium cursor-pointer w-full;
+}
+
+.list-item:hover {
+    @apply bg-gray-700 bg-opacity-10 transition ease-in duration-200;
+}
+
+.list-item:focus {
+    @apply outline-none;
+}
+
 /* Dark mode */
 html[data-theme="dark"] {
-    .btn {
+    .default, .primary {
         background-color: var(--color-background-light);
         color: var(--color-font);
     }
+    
+    .input {
+        @apply bg-opacity-0;
+    }
+
+    .btn-primary:hover {
+        @apply bg-indigo
+    }
 
     .btn:hover {
-        @apply bg-indigo
+        background-color: var(--color-font);
+        color: var(--color-background);
+    }
+
+    .list-item {
+        color: var(--color-font);
+    }
+    
+    .list-item:hover {
+        background-color: var(--color-background-light);
     }
 }
 
