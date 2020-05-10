@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { APPLICATION_SHORT_NAME, PLATFORM_NAME } from '../../core/config';
+import { APPLICATION_SHORT_NAME, PLATFORM_NAME, APPLICATION_VERSION } from '../../core/config';
 
 // Component
 import { ButtonIcon } from '../../shared/component/Button';
@@ -14,7 +14,7 @@ import { changeTheme } from '../../shared/service/theme';
 import Home from '../home/Home';
 
 function Shell() {
-    const customBorderRadius = "24px";
+    const customBorderRadius = '24px';
     document.title = `${APPLICATION_SHORT_NAME} - Home`;
 
     const action = () => changeTheme();
@@ -35,7 +35,7 @@ function Shell() {
 
             {/** Desktop Appbar */}
             <div className="appbar desktop hidden flex flex-col items-center p-8 shadow-2xl h-full w-auto max-w-md
-                lg:flex" style={{borderTopRightRadius:customBorderRadius, borderBottomRightRadius:customBorderRadius}}>
+                overflow-y-auto lg:flex" style={{borderTopRightRadius:customBorderRadius, borderBottomRightRadius:customBorderRadius}}>
                 
                 {/** Application name */}
                 <div className="flex flex-col my-4">
@@ -89,13 +89,17 @@ function Shell() {
 
                     <span className='flex-grow' />
 
-                    {/** System */}
-                    <div className='flex my-3 self-center'>
-                        <ButtonIcon action={action}>
-                            <span className="icon">account_circle</span>
-                        </ButtonIcon>
+                    {/** System Footer */}
+                    <div className='flex flex-col my-3 self-center'>
+                        <div className='self-center'>
+                            <ButtonIcon action={action}>
+                                <span className="icon">account_circle</span>
+                            </ButtonIcon>
+                        </div>
+                        <div className='break-words mt-4 text-center'>
+                            <span className='text-sm font-medium'>{PLATFORM_NAME} &copy; 2020 · {APPLICATION_SHORT_NAME} Version {APPLICATION_VERSION}</span>
+                        </div>
                     </div>
-
                 </div>
             </div>
 

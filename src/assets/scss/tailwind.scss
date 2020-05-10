@@ -19,7 +19,7 @@
 
 /* Form components */
 .field {
-    @apply rounded-lg py-2 px-4 block w-full appearance-none leading-normal;
+    @apply rounded-lg py-2 px-4 block w-full appearance-none leading-normal flex flex-row items-center;
 }
 
 .input {
@@ -50,11 +50,11 @@
 
 /* Layout components */
 .viewport {
-    @apply flex flex-col h-auto w-full items-center p-4;
+    @apply flex flex-col h-auto w-full min-h-full p-4;
 }
 
 .card {
-    @apply flex flex-col rounded-lg shadow-xl p-4;
+    @apply flex flex-col rounded-lg shadow-xl;
     background-color: var(--color-background);
 }
 
@@ -64,7 +64,7 @@
 }
 
 .card-sm {
-    @apply flex-row flex-wrap max-w-sm;
+    @apply flex-row flex-wrap max-w-sm p-4;
 }
 
 .list-item {
