@@ -38,8 +38,8 @@ function Shell() {
         <div className="flex flex-col h-full w-full lg:flex-row">
 
             {/** Desktop Appbar */}
-            <div className="appbar desktop hidden flex flex-col items-center p-8 shadow-2xl h-full w-auto max-w-md
-                overflow-y-auto lg:flex" style={{borderTopRightRadius:customBorderRadius, borderBottomRightRadius:customBorderRadius}}>
+            <div className="appbar desktop hidden flex flex-col items-center p-8 shadow-2xl h-full w-auto
+                overflow-y-auto lg:flex" style={{borderTopRightRadius:customBorderRadius, borderBottomRightRadius:customBorderRadius, maxWidth:'300px'}}>
                 
                 {/** Application name */}
                 <div className="flex flex-col my-4">
@@ -49,7 +49,7 @@ function Shell() {
                 </div>
 
                 {/** Search input */}
-                <Field className='my-1 w-full' icon='search' placeholder='Search a category' handleChange={handleSearchChange} value={searchValue} />
+                <Field className='my-1 w-full max-w-full' icon='search' placeholder='Search a category' handleChange={handleSearchChange} value={searchValue} />
 
                 {/** Appbar list */}
                 <div className="flex flex-col my-4 w-full h-full">
@@ -117,13 +117,16 @@ function Shell() {
                 <ButtonIcon action={() => changeTheme()}>
                     <span className="icon">dashboard</span>
                 </ButtonIcon>
+                <ButtonIcon action={() => setTriggerSearch(triggerSearch ? false : true)}>
+                    <span className="icon">search</span>
+                </ButtonIcon>
                 <ButtonIcon>
                     <span className="mdi mdi-server-network" />
                 </ButtonIcon>
                 <ButtonIcon>
                     <span className="mdi mdi-api" />
                 </ButtonIcon>
-                <ButtonIcon action={() => setTriggerSearch(triggerSearch ? false : true)}>
+                <ButtonIcon action={() => changeTheme()}>
                     <span className="icon">account_circle</span>
                 </ButtonIcon>
             </div>

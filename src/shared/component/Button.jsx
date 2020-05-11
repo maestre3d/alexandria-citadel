@@ -6,7 +6,7 @@ export function Button(props) {
             props.className : 'btn default font-medium p-2 flex flex-row items-center'}>
             {props.children}
         </button>
-    );
+    )
 }
 
 export function ButtonIcon(props) {
@@ -14,5 +14,5 @@ export function ButtonIcon(props) {
         <button onClick={props.action} className={props.className !== undefined ? 'btn btn-icon default ' + props.className : 'btn btn-icon default'}>
             {props.children}
         </button>
-    );
+    )
 }
