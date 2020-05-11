@@ -2,3 +2,9 @@
     height: 24rem;
     width: 64rem;
 }
+
+@media (min-width: 1920px) and (max-height: 1080px) {
+    .safezone {
+        max-width: 100% !important;
+    }
+}

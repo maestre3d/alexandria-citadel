@@ -12,12 +12,11 @@ import './Shell.scss';
 // Function
 import { changeTheme } from '../../shared/service/theme';
 import Home from '../home/Home';
+import { SearchBar } from '../../shared/component/Bar';
 
 function Shell() {
     const customBorderRadius = '24px';
     document.title = `${APPLICATION_SHORT_NAME} - Home`;
-
-    const action = () => changeTheme();
 
     // Search
     const [searchValue, setSearch] = useState('');
@@ -26,9 +25,14 @@ function Shell() {
         setSearch(e.target.value);
     };
 
+    // Mobile search bar
+    const [triggerSearch, setTriggerSearch] = useState(true)
+
     useEffect(() => {
         // ComponentDidMount-like - OnSearch change, do API call
+        
     })
+    
 
     return (
         <div className="flex flex-col h-full w-full lg:flex-row">
@@ -90,7 +94,7 @@ function Shell() {
                     {/** System Footer */}
                     <div className='flex flex-col my-3 self-center'>
                         <div className='self-center'>
-                            <ButtonIcon action={action}>
+                            <ButtonIcon action={() => changeTheme()}>
                                 <span className="icon">account_circle</span>
                             </ButtonIcon>
                         </div>
@@ -101,13 +105,16 @@ function Shell() {
                 </div>
             </div>
 
+            {/** Mobile Searchbar */}
+            <SearchBar action={() => setTriggerSearch(triggerSearch ? false : true)} isHidden={triggerSearch} />
+
             {/** Content - Main Viewport */}
             <Home /> 
 
             {/** Mobile Appbar */}
             <div className="appbar mobile flex flex-row justify-center items-center p-1 my-8 rounded-full z-10 fixed bottom-0 self-center max-w-screen-sm
                 shadow-2xl  lg:hidden">
-                <ButtonIcon action={action}>
+                <ButtonIcon action={() => changeTheme()}>
                     <span className="icon">dashboard</span>
                 </ButtonIcon>
                 <ButtonIcon>
@@ -116,7 +123,7 @@ function Shell() {
                 <ButtonIcon>
                     <span className="mdi mdi-api" />
                 </ButtonIcon>
-                <ButtonIcon action={action}>
+                <ButtonIcon action={() => setTriggerSearch(triggerSearch ? false : true)}>
                     <span className="icon">account_circle</span>
                 </ButtonIcon>
             </div>
