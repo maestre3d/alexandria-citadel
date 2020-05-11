@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 // Component dependecies
 import { Button } from './Button';
@@ -38,4 +39,12 @@ export function FieldText(props) {
             {props.children}
         </div>
     );
+}
+
+FieldText.propTypes = {
+    icon: PropTypes.string,
+    placeholder: PropTypes.string,
+    className: PropTypes.string,
+    value: PropTypes.string,
+    changeHandler: PropTypes.func
 }

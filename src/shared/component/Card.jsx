@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 /**
  * Card exports a card component.
@@ -31,4 +32,11 @@ export function Card(props) {
                 </div>
             )
     }
+}
+
+Card.propTypes = {
+    type: PropTypes.string,
+    className: PropTypes.string,
+    image: PropTypes.string,
+    alt: PropTypes.string
 }

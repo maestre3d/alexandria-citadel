@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 /**
  * Button exports a button component.
@@ -23,4 +24,10 @@ export function Button(props) {
                 </button>
             )
     }
+}
+
+Button.propTypes = {
+    type: PropTypes.string,
+    action: PropTypes.func,
+    className: PropTypes.string
 }

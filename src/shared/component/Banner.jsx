@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 // Style
 import './style/Banner.scss';
@@ -25,4 +26,11 @@ export function Banner(props) {
             </div>     
         </Card>
     )
+}
+
+Banner.propTypes = {
+    image: PropTypes.string,
+    heading: PropTypes.string,
+    description: PropTypes.string,
+    className: PropTypes.string
 }
