@@ -29,6 +29,9 @@ export function SearchBar(props) {
         setQuery(e.target.value)
     };
 
+    // Refs
+    const textInput = React.createRef()
+
     useEffect(() => {
         // Call query API
     })
@@ -44,13 +47,13 @@ export function SearchBar(props) {
                         <span className="icon">arrow_back</span>
                     </Button>
                     <FieldText className='ml-1 my-1 w-56 self-center' icon='search' placeholder='Search a category' 
-                        onChangeHandler={onQueryHandler} value={query} />
+                        onChangeHandler={onQueryHandler} value={query} inputRef={textInput} />
                 </div>
             }
             return null
         default:
             return <FieldText className='my-1 w-full max-w-full' icon='search' placeholder='Search a category' 
-                        onChangeHandler={onQueryHandler} value={query} />
+                        onChangeHandler={onQueryHandler} value={query} inputRef={textInput} />
     }
 }
 

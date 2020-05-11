@@ -10,9 +10,14 @@ import { Button } from './Button';
  * _*Requires Hooks to operate_
  * @param {string} props.icon Material Design icon type
  * @param {string} props.placeholder Input's placeholder
+ * @param {string} props.label Aria label text
+ * @param {boolean} props.required Specify if form is required
+ * @param {string} props.name Input's name
+ * @param {string} props.icon Material Design icon type
  * @param {string} props.className Extra CSS classes
  * @param {string} props.value Parent's hook's value
  * @param {function} props.changeHandler Parent's hook's state change handler
+ * @param {object} props.inputRef Input's reference from parent
  * @param {*} props.children Child nodes
  */
 export function FieldText(props) {
@@ -34,7 +39,9 @@ export function FieldText(props) {
         <div className={props.className !== undefined ? 'field default focus:outline-none focus:shadow-outline ' + props.className : 
                 'field default focus:outline-none focus:shadow-outline'}>
             {iconTemplate}
-            <input className='input w-full focus:outline-none' type='text' placeholder={props.placeholder} value={props.value} onChange={props.onChangeHandler} />
+            <input className='input w-full focus:outline-none' type='text' placeholder={props.placeholder} value={props.value} 
+                ref={props.inputRef} onChange={props.onChangeHandler} aria-label={props.label} aria-required={toString(props.required).toLowerCase()} 
+                required={props.required} name={props.name} />
             {clearIconTemplate}
             {props.children}
         </div>
@@ -44,7 +51,11 @@ export function FieldText(props) {
 FieldText.propTypes = {
     icon: PropTypes.string,
     placeholder: PropTypes.string,
+    label: PropTypes.string,
+    required: PropTypes.bool,
+    name: PropTypes.string,
     className: PropTypes.string,
     value: PropTypes.string,
-    changeHandler: PropTypes.func
+    changeHandler: PropTypes.func,
+    inputRef: PropTypes.object,
 }
