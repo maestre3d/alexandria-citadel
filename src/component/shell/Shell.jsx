@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { APPLICATION_SHORT_NAME, PLATFORM_NAME, APPLICATION_VERSION } from '../../core/config';
 
 // Component
-import { ButtonIcon } from '../../shared/component/Button';
-import { Field } from '../../shared/component/Field';
-import { ListItem } from '../../shared/component/List';
+import { Button } from '../../shared/component/Button';
+import { Item } from '../../shared/component/Item';
+import { SearchBar } from '../../shared/component/Bar';
 
 // Styles
 import './Shell.scss';
@@ -12,29 +12,21 @@ import './Shell.scss';
 // Function
 import { changeTheme } from '../../shared/service/theme';
 import Home from '../home/Home';
-import { SearchBar } from '../../shared/component/Bar';
 
 function Shell() {
-    const customBorderRadius = '24px';
-    document.title = `${APPLICATION_SHORT_NAME} - Home`;
-
-    // Search
-    const [searchValue, setSearch] = useState('');
-
-    const handleSearchChange = (e) => {
-        setSearch(e.target.value);
-    };
+    const customBorderRadius = '24px'
+    document.title = `${APPLICATION_SHORT_NAME} - Home`
 
     // Mobile search bar
     const [triggerSearch, setTriggerSearch] = useState(true)
 
     useEffect(() => {
-        // ComponentDidMount-like - OnSearch change, do API call
-        
+        // ComponentDidMount-like
     })
     
 
     return (
+        // Root wrapper
         <div className="flex flex-col h-full w-full lg:flex-row">
 
             {/** Desktop Appbar */}
@@ -49,7 +41,7 @@ function Shell() {
                 </div>
 
                 {/** Search input */}
-                <Field className='my-1 w-full max-w-full' icon='search' placeholder='Search a category' handleChange={handleSearchChange} value={searchValue} />
+                <SearchBar />
 
                 {/** Appbar list */}
                 <div className="flex flex-col my-4 w-full h-full">
@@ -57,36 +49,36 @@ function Shell() {
                     {/** Event Bus */}
                     <div className='flex flex-col my-3'>
                         <strong className="uppercase text-sm tracking-wider mb-2">Event Bus</strong>
-                        <ListItem>
+                        <Item>
                             <span className="mdi mdi-apache-kafka text-xl mr-2" />
                             <span>Kafka</span>
-                        </ListItem>
+                        </Item>
                     </div>
 
                     {/** HTTP API */}
                     <div className='flex flex-col my-3'>
                         <strong className="uppercase text-sm tracking-wider mb-2">HTTP API</strong>
-                        <ListItem>
+                        <Item>
                             <span className="mdi mdi-api text-xl mr-1" />
                             <span>API Status</span>
-                        </ListItem>
-                        <ListItem>
+                        </Item>
+                        <Item>
                             <span className="mdi mdi-gauge text-xl mr-1" />
                             <span>Metric</span>
-                        </ListItem>
+                        </Item>
                     </div>
 
                     {/** RPC API */}
                     <div className='flex flex-col my-3'>
                         <strong className="uppercase text-sm tracking-wider mb-2">RPC API</strong>
-                        <ListItem>
+                        <Item>
                             <span className="mdi mdi-api text-xl mr-1" />
                             <span>API Status</span>
-                        </ListItem>
-                        <ListItem className='mb-1'>
+                        </Item>
+                        <Item className='mb-1'>
                             <span className="mdi mdi-gauge text-xl mr-1" />
                             <span>Metric</span>
-                        </ListItem>
+                        </Item>
                     </div>
 
                     <span className='flex-grow' />
@@ -94,9 +86,9 @@ function Shell() {
                     {/** System Footer */}
                     <div className='flex flex-col my-3 self-center'>
                         <div className='self-center'>
-                            <ButtonIcon action={() => changeTheme()}>
+                            <Button type='icon' action={() => changeTheme()}>
                                 <span className="icon">account_circle</span>
-                            </ButtonIcon>
+                            </Button>
                         </div>
                         <div className='break-words mt-4 text-center'>
                             <span className='text-sm font-medium'>{PLATFORM_NAME} &copy; 2020 · {APPLICATION_SHORT_NAME} Version {APPLICATION_VERSION}</span>
@@ -106,7 +98,7 @@ function Shell() {
             </div>
 
             {/** Mobile Searchbar */}
-            <SearchBar action={() => setTriggerSearch(triggerSearch ? false : true)} isHidden={triggerSearch} />
+            <SearchBar type='mobile' onHiddenHandler={() => setTriggerSearch(triggerSearch ? false : true)} isHidden={triggerSearch} />
 
             {/** Content - Main Viewport */}
             <Home /> 
@@ -114,21 +106,21 @@ function Shell() {
             {/** Mobile Appbar */}
             <div className="appbar mobile flex flex-row justify-center items-center p-1 my-8 rounded-full z-10 fixed bottom-0 self-center max-w-screen-sm
                 shadow-2xl  lg:hidden">
-                <ButtonIcon action={() => changeTheme()}>
+                <Button type='icon' action={() => changeTheme()}>
                     <span className="icon">dashboard</span>
-                </ButtonIcon>
-                <ButtonIcon action={() => setTriggerSearch(triggerSearch ? false : true)}>
+                </Button>
+                <Button type='icon' action={() => setTriggerSearch(triggerSearch ? false : true)}>
                     <span className="icon">search</span>
-                </ButtonIcon>
-                <ButtonIcon>
+                </Button>
+                <Button type='icon'>
                     <span className="mdi mdi-server-network" />
-                </ButtonIcon>
-                <ButtonIcon>
+                </Button>
+                <Button type='icon'>
                     <span className="mdi mdi-api" />
-                </ButtonIcon>
-                <ButtonIcon action={() => changeTheme()}>
+                </Button>
+                <Button type='icon' action={() => changeTheme()}>
                     <span className="icon">account_circle</span>
-                </ButtonIcon>
+                </Button>
             </div>
         </div>
     )
