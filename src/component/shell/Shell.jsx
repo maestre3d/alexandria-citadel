@@ -7,7 +7,10 @@ import './Shell.scss';
 // Component
 import { SearchBar } from '../../shared/component/Bar';
 import { AppBarDesktop, AppBarMobile } from './component/AppBar';
+
 // Lazy-loaded pages
+// TODO: Lazy loading with React lazy breaks layout
+// import Home from '../home/Home';
 const Home = React.lazy(() => import('../home/Home'))
 
 /**
@@ -45,7 +48,7 @@ function Shell() {
             <SearchBar type='mobile' onHiddenHandler={() => setToggleSearch(toggleSearch ? false : true)} isHidden={toggleSearch} />
 
             {/** Content - Main Viewport */}
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<div className='w-full h-full'>Loading...</div>}>
                 <Home />
             </Suspense>
 
@@ -55,4 +58,4 @@ function Shell() {
     )
 }
 
-export default Shell;
+export default Shell
