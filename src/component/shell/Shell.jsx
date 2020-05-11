@@ -48,12 +48,20 @@ function Shell() {
             <SearchBar type='mobile' onHiddenHandler={() => setToggleSearch(toggleSearch ? false : true)} isHidden={toggleSearch} />
 
             {/** Content - Main Viewport */}
-            <Suspense fallback={<div className='w-full h-full'>Loading...</div>}>
+            <Suspense fallback={HomeSkeleton()}>
                 <Home />
             </Suspense>
 
             {/** Mobile Appbar */}
             <AppBarMobile isMobile={isMobile} toggleSearchHandler={() => setToggleSearch(toggleSearch ? false : true)} />
+        </div>
+    )
+}
+
+function HomeSkeleton() {
+    return (
+        <div className='flex flex-col items-center justify-center w-full h-full'>
+            Loading...
         </div>
     )
 }
